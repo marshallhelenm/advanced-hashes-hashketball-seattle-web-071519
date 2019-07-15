@@ -25,6 +25,18 @@ def game_hash
   }
 end
   
+def good_practices
+  game_hash.each do |location, team_data|
+    binding.pry
+    team_data.each do |attribute, data|
+      binding.pry
+      data.each do |data_item|
+          binding.pry
+      end
+    end
+  end
+end
+  
 def stat_by_player(requested_name, statistic)
   game_hash.each do |location, team_data|
     team_data.each do |attribute, data|
@@ -38,39 +50,11 @@ def stat_by_player(requested_name, statistic)
   end
 end
 
-#def num_points_scored(requested_name)
- # game_hash.each do |location, team_data|
-  #  team_data.each do |attribute, data|
-   #   next unless attribute == :players
-    #  data.each do |player_data|
-     #   if requested_name == player_data[:player_name]
-      #    player_points = player_data[:points]
-       #  
-        #return player_points
-        #end
-      #end  
-    #end
-  #end
-#end 
 
 def num_points_scored(requested_name)
   stat_by_player(requested_name, :points)
 end
 
-#def shoe_size(requested_name)
-#  game_hash.each do |location, team_data|
-#    team_data.each do |attribute, data|
-#      next unless attribute == :players
-#      data.each do |player_data|
-#        if requested_name == player_data[:player_name]
-#          player_shoe_size = player_data[:shoe]
-#         
-#        return player_shoe_size
-#        end
-#      end  
-#    end
-#  end
-#end 
 
 def shoe_size(requested_name)
   stat_by_player(requested_name, :shoe)
